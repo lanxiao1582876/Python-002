@@ -4,8 +4,6 @@ from scrapy.selector import Selector
 from lxml import etree
 from time import sleep 
 
-
-
 class MaoyanSpider(scrapy.Spider):
     name = 'maoyan'
     allowed_domains = ['maoyan.com']
@@ -31,11 +29,13 @@ class MaoyanSpider(scrapy.Spider):
         for movie in movies:
             item = maoyanItem()
             movie_name = movie.xpath('./div[1]/span[1]/text()')
-            movie_class = movie.xpath('./div[2]/text()')
+            movie_class = movie.xpath('./div[2]/text()')[-1]
             movie_time = movie.xpath('./div[4]/text()')[-1]
-            #print(movie_name.extract_first().strip())
+            
+            print(movie_name.extract_first().strip())
             print(movie_class.extract().strip())
             print(movie_time.extract().strip())
+
             item['movie_name'] = movie_name.extract_first().strip()
             item['movie_class'] = movie_class.extract().strip()
             item['movie_time'] = movie_time.extract().strip()

@@ -15,13 +15,15 @@ class SpidersPipeline:
         movie_name =  item['movie_name']
         movie_class = item['movie_class']
         movie_time = item['movie_time']
-        # output = f'|{m_title}|\t|{m_type}|\t|{m_time}|\n\n'
-        # with open('./maoyanmovie2.txt', 'a+', encoding='utf-8') as article:
-        #     article.write(output)
-        import csv
-        f = open('./maoyanmovie2.csv','a+',encoding='utf-8', newline='')
-        csv_writer = csv.writer(f)
-        csv_writer.writerow([movie_name, movie_class, movie_time])
-        f.close()
+       
+        output = f'|{movie_name}|\t|{movie_class}|\t|{movie_time}|\n\n'
+        with open('./maoyan_v2.csv', 'a+', encoding='utf-8') as article:
+            article.write(output)
         return item
+
+        # import pandas as pd
+        # movie1 = pd.DataFrame(data = item)
+        # # windows需要使用gbk字符集
+        # movie1.to_csv('./maoyan2.csv', encoding='utf8', index=False, header=False)
+
 
