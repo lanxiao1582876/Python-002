@@ -1,0 +1,14 @@
+问题1 
+区分以下类型哪些是容器序列哪些是扁平序列，哪些是可变序列哪些是不可变序列：
+
+list
+tuple
+str
+dict
+collections.deque
+
+答:
+1  容器序列: list tuple dict collections.deque
+2  扁平序列: str bytes，bytearray，memoryview，array.array
+3  可变序列: list  dict bytearray，array.array，collection.deque，memoryview
+4  不可变序列: tuple str bytes
