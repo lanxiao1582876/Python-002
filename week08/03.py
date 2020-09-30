@@ -13,7 +13,7 @@ def timer(fun):
 def ex1(a, b):
     print(a + b)
     time.sleep(1)
-
+@timer
 def ex2(*args, **kwargs):
     print(args)
     print(kwargs)

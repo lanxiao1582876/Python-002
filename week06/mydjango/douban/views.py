@@ -35,20 +35,20 @@ def books_short(request):
     return render(request, 'result.html', locals())
 
 
-# def start_lt_3(request):
-#     if request.method == "GET":
-#         key = request.GET.get('q', "")
-#         conditions = {'n_star__gt': 3}
-#         keys = None
-#         if key:
-#             conditions['short__icontains'] = key
-#             safe = "/#%[]=:;$&()+,!?*@'~"
-#             keys = []
-#             for i, k in enumerate(key):
-#                 if k in safe:
-#                     k = '%{:02X}'.format(ord(k))
-#                 keys.append(k)
-#             keys = ''.join(keys)
-    
-#         shorts = T1.objects.filter(**conditions)
-#         return render(request, 'index2.html', {'shorts': shorts, 'keys': keys})
+ def start_lt_3(request):
+     if request.method == "GET":
+         key = request.GET.get('q', "")
+         conditions = {'n_star__gt': 3}
+         keys = None
+         if key:
+             conditions['short__icontains'] = key
+             safe = "/#%[]=:;$&()+,!?*@'~"
+             keys = []
+             for i, k in enumerate(key):
+                 if k in safe:
+                     k = '%{:02X}'.format(ord(k))
+                 keys.append(k)
+             keys = ''.join(keys)
+
+         shorts = T1.objects.filter(**conditions)
+         return render(request, 'index2.html', {'shorts': shorts, 'keys': keys})
